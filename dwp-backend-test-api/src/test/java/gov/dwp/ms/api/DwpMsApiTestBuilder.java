@@ -72,9 +72,9 @@ public class DwpMsApiTestBuilder {
 	}
 	
 	public void setLocationResponse(String name, String lat, String lon) { // Creates a location response when called.
-	    location.setDisplay_name(name);
-	    location.setLat(lat);
-	    location.setLon(lon);
+        location.setDisplay_name(name);
+        location.setLat(lat);
+        location.setLon(lon);
 	}
 	
 	private <T> String getJsonString(T obj) throws Exception { // Helper method to convert objects to strings for result matching.
