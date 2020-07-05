@@ -3,7 +3,7 @@ package gov.dwp.ms.model;
 
 public class APIUsersResponse {
 
-	private int id;
+    private int id;
     private String first_name;
     private String last_name;
     private String email;

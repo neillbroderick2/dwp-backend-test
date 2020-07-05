@@ -3,7 +3,7 @@ package gov.dwp.ms.model;
 
 public class APILocationResponse {
     
-	private String display_name;
+    private String display_name;
     private String type;
     private String lat;
     private String lon;
