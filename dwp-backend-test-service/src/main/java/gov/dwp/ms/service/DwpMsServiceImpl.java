@@ -30,27 +30,27 @@ import org.springframework.web.util.UriComponentsBuilder;
 @Service
 public class DwpMsServiceImpl implements DwpMsService {
 	
-	private static Logger log = LoggerFactory.getLogger(DwpMsServiceImpl.class);
+    private static Logger log = LoggerFactory.getLogger(DwpMsServiceImpl.class);
 	
-	@Autowired
-	RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
 	
-	@Value("${usersApi.url}")
-	public String usersUrl;
+    @Value("${usersApi.url}")
+    public String usersUrl;
 	
-	@Value("${locationIq.url}")
-	public String locationIqUrl;
+    @Value("${locationIq.url}")
+    public String locationIqUrl;
 	
-	@Value("${locationIq.token}")
-	public String locationIqToken;
+    @Value("${locationIq.token}")
+    public String locationIqToken;
 	
-	@Value("${error.location.api}")
-	public String locationErrorMsg;
+    @Value("${error.location.api}")
+    public String locationErrorMsg;
 	
-	@Value("${error.users.api}")
-	public String usersErrorMsg;
+    @Value("${error.users.api}")
+    public String usersErrorMsg;
 	
-	private String xCorrelationId;
+    private String xCorrelationId;
   	
     public String getRequestId() throws Exception {
     	return xCorrelationId;
