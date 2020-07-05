@@ -20,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @Component
 public class DwpMsApiHelper {
-	//
+	
 	public List<APIUsersResponse> processResults(int radius, APILocationResponse location, List<APIUsersResponse> searchUsers, List<APIUsersResponse> radiusUsers) { // Processes lists of APIUserResponse against geodesic class to check if users within radius.	
 		Set<APIUsersResponse> resultSet = new HashSet<APIUsersResponse>(); // Create a result set to contain the valid results.
 		
@@ -63,8 +63,8 @@ public class DwpMsApiHelper {
 	public HttpHeaders setResponseHeaders(String xCorrelationId) { // Sets the response headers, which in this case is the request id if one was provided.
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("X-Correlation-Id", xCorrelationId);
-        // Add additional response headers here...
-        
-        return headers;
+		// Add additional response headers here...
+
+		return headers;
 	}
 }
