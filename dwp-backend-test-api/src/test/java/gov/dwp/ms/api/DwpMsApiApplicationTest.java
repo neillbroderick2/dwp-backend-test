@@ -30,16 +30,16 @@ import org.springframework.web.server.ResponseStatusException;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DwpMsApiApplicationTest {
 	
-	@LocalServerPort
-	private int port;
+    @LocalServerPort
+    private int port;
 	
-	@Autowired
-	private DwpMsService dwpMsService;
+    @Autowired
+    private DwpMsService dwpMsService;
 	
-	@Autowired
-	private TestRestTemplate mockApi;
+    @Autowired
+    private TestRestTemplate mockApi;
 	
-	@Test
+    @Test
     public void locationByRadius_cityPathVariableMaxLength() throws Exception { // Test the city path variable errors if length is over 50 chars.
     	ResponseEntity<String> actualResult = mockApi.getForEntity("http://localhost:" + port + "/city/Londonasdasdasasdasdasasdasdasdasdasdasdasasdadasdasdasasdas/radius/50/users", String.class);
         
@@ -73,7 +73,7 @@ public class DwpMsApiApplicationTest {
         Mockito.when(dwpMsService.getSearchResults("London")).thenReturn(dwpTestBuilder.getSearchResponse()); // Set the expected service calls to respond with the object provided.
         Mockito.when(dwpMsService.getUsersResults()).thenReturn(dwpTestBuilder.getUsersResponse());
    
-		String expectedResult = dwpTestBuilder.getExpectedResults(); // Get the expected result from the builder.
+        String expectedResult = dwpTestBuilder.getExpectedResults(); // Get the expected result from the builder.
         ResponseEntity<String> actualResult = mockApi.getForEntity("http://localhost:" + port + "/", String.class);
         
         assertSame(HttpStatus.OK, actualResult.getStatusCode());
