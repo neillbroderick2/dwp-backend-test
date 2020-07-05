@@ -20,7 +20,7 @@ public class DwpMsServiceConfig {
     @Value("${thread.core.pool.size}")
     private int corePoolSize;
 	
-	@Value("${thread.max.pool.size}")
+    @Value("${thread.max.pool.size}")
     private int maxPoolSize;
 	
 	@Value("${thread.queue.capacity}")

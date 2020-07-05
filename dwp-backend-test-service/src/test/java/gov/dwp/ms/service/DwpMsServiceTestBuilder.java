@@ -37,7 +37,7 @@ public class DwpMsServiceTestBuilder {
 		response.setLongitude(longitude);
 		
 		usersResult[counter] = response;
-	    counter++;
+		counter++;
 	}
 	
 	public void setSearchResponse(int id, String firstName, String lastName, String email, String ipAddress, double latitude, double longitude) { // Creates and adds a search api response each time it is called.
@@ -51,7 +51,7 @@ public class DwpMsServiceTestBuilder {
 		response.setLongitude(longitude);
 		
 		searchResult[counter] = response;
-	    counter++;
+		counter++;
 	}
 	
 	public void setLocationResponse(String name, String lat, String lon) { // Creates and add a location api response each time it is called.
@@ -59,8 +59,8 @@ public class DwpMsServiceTestBuilder {
 		response.setDisplay_name(name);
 		response.setLat(lat);
 		response.setLon(lon);
-	    
-	    locationResult[counter] = response;
-	    counter++;
+		
+		locationResult[counter] = response;
+		counter++;
 	}
 }

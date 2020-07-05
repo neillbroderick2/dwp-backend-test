@@ -23,7 +23,7 @@ public class DwpMsApiTestBuilder {
 
 	public String getExpectedResults() throws Exception { // Get a sorted list of results for matching purposes.
 		List<APIUsersResponse> expectedResults = new ArrayList<APIUsersResponse>(resultSet); // Convert the set into a list.
-        Collections.sort(expectedResults, new DwpMsUserSort()); // Sort using the same method as main app to ensure consistency.
+		Collections.sort(expectedResults, new DwpMsUserSort()); // Sort using the same method as main app to ensure consistency.
 		
 		return getJsonString(expectedResults);
 	}
@@ -78,8 +78,8 @@ public class DwpMsApiTestBuilder {
 	}
 	
 	private <T> String getJsonString(T obj) throws Exception { // Helper method to convert objects to strings for result matching.
-    	ObjectMapper mapper = new ObjectMapper();
-    	
-    	return mapper.writeValueAsString(obj);
-    }
+		ObjectMapper mapper = new ObjectMapper();
+		
+		return mapper.writeValueAsString(obj);
+	}
 }

@@ -172,7 +172,7 @@ public class DwpMsServiceImplTest {
     	Mockito.when(mockApi.getForEntity(builder.build().encode().toUri(), APILocationResponse.class)).thenThrow(HttpClientErrorException.class);
     	
     	@SuppressWarnings("unused")
-		CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
+    	CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
     }
     
     @Test(expected = ResponseStatusException.class)
@@ -274,7 +274,7 @@ public class DwpMsServiceImplTest {
     	Mockito.when(mockApi.getForEntity(builder.build().encode().toUri(), APILocationResponse.class)).thenThrow(Exception.class);
     	
     	@SuppressWarnings("unused")
-		CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
+    	CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
     }
     
     @Test(expected = Exception.class)

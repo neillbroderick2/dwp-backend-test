@@ -32,25 +32,25 @@ public class DwpMsServiceImpl implements DwpMsService {
 	
 	private static Logger log = LoggerFactory.getLogger(DwpMsServiceImpl.class);
 	
-  	@Autowired
-  	RestTemplate restTemplate;
-  	
-  	@Value("${usersApi.url}")
-  	public String usersUrl;
-  	
-  	@Value("${locationIq.url}")
-    public String locationIqUrl;
-  	
-  	@Value("${locationIq.token}")
-  	public String locationIqToken;
-  	
-  	@Value("${error.location.api}")
-  	public String locationErrorMsg;
-  	
-  	@Value("${error.users.api}")
-  	public String usersErrorMsg;
-  	
-  	private String xCorrelationId;
+	@Autowired
+	RestTemplate restTemplate;
+	
+	@Value("${usersApi.url}")
+	public String usersUrl;
+	
+	@Value("${locationIq.url}")
+	public String locationIqUrl;
+	
+	@Value("${locationIq.token}")
+	public String locationIqToken;
+	
+	@Value("${error.location.api}")
+	public String locationErrorMsg;
+	
+	@Value("${error.users.api}")
+	public String usersErrorMsg;
+	
+	private String xCorrelationId;
   	
     public String getRequestId() throws Exception {
     	return xCorrelationId;
@@ -61,19 +61,19 @@ public class DwpMsServiceImpl implements DwpMsService {
     }
   	
     @Retryable( // Allows the method to be retried on a server error (5xx)
-		  value = {HttpServerErrorException.class}, // Exception name we want to retry when thrown (can add addition classes).
-		  maxAttempts = 3, // Number of retries.
-		  backoff = @Backoff(delay = 500)) // Delay between retries.
-  	@Cacheable("cities") // This methods results will be cached for faster retrieval. For city co-ords this is fine as they will never change.
+    		value = {HttpServerErrorException.class}, // Exception name we want to retry when thrown (can add addition classes).
+    		maxAttempts = 3, // Number of retries.
+    		backoff = @Backoff(delay = 500)) // Delay between retries.
+    @Cacheable("cities") // This methods results will be cached for faster retrieval. For city co-ords this is fine as they will never change.
     @Async("dwpTaskExec") // Assigns this method to the dwpTaskExec TaskExecutor thread pool.
     public CompletableFuture<APILocationResponse> getLocationResults(String city) throws Exception { // Gets location results from LocationIq web service.
     	try {
 	    	log.debug(xCorrelationId + ": Starting getLocationResults method");
 	    	log.debug("location: " + locationIqUrl);
 	    	UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(locationIqUrl) 
-			        .queryParam("key", locationIqToken)
-			        .queryParam("q", StringUtils.capitalize(city))
-			        .queryParam("format", "json");    	    	
+	    			.queryParam("key", locationIqToken)
+	    			.queryParam("q", StringUtils.capitalize(city))
+	    			.queryParam("format", "json");    	    	
 	    	URI url = builder.build().encode().toUri(); // Build the request url.
 	    	
 	    	log.debug(xCorrelationId + ": Getting results from " + url.toString());
@@ -112,9 +112,9 @@ public class DwpMsServiceImpl implements DwpMsService {
     }
     
     @Retryable(
-  		  value = {HttpServerErrorException.class}, 
-  		  maxAttempts = 3,
-  		  backoff = @Backoff(delay = 500))
+    		value = {HttpServerErrorException.class}, 
+    		maxAttempts = 3,
+    		backoff = @Backoff(delay = 500))
     @Async("dwpTaskExec") 
     public CompletableFuture<List<APIUsersResponse>> getUsersResults() throws Exception { // Gets users list from users api.
     	try {
@@ -159,9 +159,9 @@ public class DwpMsServiceImpl implements DwpMsService {
     }
     
     @Retryable(
-  		  value = {HttpServerErrorException.class}, 
-  		  maxAttempts = 3,
-  		  backoff = @Backoff(delay = 500))
+    		value = {HttpServerErrorException.class}, 
+    		maxAttempts = 3,
+    		backoff = @Backoff(delay = 500))
     @Async("dwpTaskExec") 
     public CompletableFuture<List<APIUsersResponse>> getSearchResults(String city) throws Exception { // Gets search results from users api. 	
     	try {

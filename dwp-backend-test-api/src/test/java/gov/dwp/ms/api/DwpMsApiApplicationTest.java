@@ -34,7 +34,7 @@ public class DwpMsApiApplicationTest {
 	private int port;
 	
 	@Autowired
-    private DwpMsService dwpMsService;
+	private DwpMsService dwpMsService;
 	
 	@Autowired
 	private TestRestTemplate mockApi;
@@ -175,7 +175,7 @@ public class DwpMsApiApplicationTest {
         Mockito.when(dwpMsService.getUsersResults()).thenReturn(dwpTestBuilder.getUsersResponse());
         
         HttpHeaders headers = new HttpHeaders();
-		headers.add("X-Correlation-Id", "client-xyz-id-12345");
+        headers.add("X-Correlation-Id", "client-xyz-id-12345");
         
         ResponseEntity<String> actualResult = mockApi.exchange("http://localhost:" + port + "/", HttpMethod.GET, new HttpEntity<Object>(headers), String.class);
         HttpHeaders resultHeaders = actualResult.getHeaders();
@@ -199,7 +199,7 @@ public class DwpMsApiApplicationTest {
         Mockito.when(dwpMsService.getLocationResults("London")).thenReturn(dwpTestBuilder.getLocationResponse());
         
         HttpHeaders headers = new HttpHeaders();
-		headers.add("X-Correlation-Id", "client-xyz-id-12345");
+        headers.add("X-Correlation-Id", "client-xyz-id-12345");
         
         ResponseEntity<String> actualResult = mockApi.exchange("http://localhost:" + port + "/city/London/radius/50/users", HttpMethod.GET, new HttpEntity<Object>(headers), String.class);
         HttpHeaders resultHeaders = actualResult.getHeaders();

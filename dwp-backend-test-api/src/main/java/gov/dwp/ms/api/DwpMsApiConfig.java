@@ -21,9 +21,9 @@ public class DwpMsApiConfig {
 				        .description("Our API (Application Programming Interface) enables you to integrate with us and build applications that leverage our functionality and data.")
 				        .version("1.0")
 				        .build())
-			    .select()                                  
-			    .apis(RequestHandlerSelectors.any())              
-			    .paths(PathSelectors.any()) // Selecting all paths, but can limit to specific apis using regex if required.                         
-			    .build();
+				.select()                                  
+				.apis(RequestHandlerSelectors.any())              
+				.paths(PathSelectors.any()) // Selecting all paths, but can limit to specific apis using regex if required.                         
+				.build();
     }   
 }
