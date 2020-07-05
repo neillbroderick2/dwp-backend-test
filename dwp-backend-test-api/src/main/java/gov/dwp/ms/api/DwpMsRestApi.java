@@ -83,9 +83,9 @@ public class DwpMsRestApi {
 	        produces = {MediaType.APPLICATION_JSON_VALUE, "application/json"}
     )
     public ResponseEntity<?> locationByRadius( // GET mapping for with city and radius parameters passed.  
-			@RequestHeader(value = "X-Correlation-Id", required = false) String xCorrelationId,
-			@PathVariable(value = "city", required = true) @Size(max = 50) String city, // 50 char limit for city name.
-			@PathVariable(value = "radius", required = true) @Min(1) @Max(100) int radius // Min 1 mile and max 100.
+            @RequestHeader(value = "X-Correlation-Id", required = false) String xCorrelationId,
+            @PathVariable(value = "city", required = true) @Size(max = 50) String city, // 50 char limit for city name.
+            @PathVariable(value = "radius", required = true) @Min(1) @Max(100) int radius // Min 1 mile and max 100.
     ) throws Exception {
     	xCorrelationId = dwpApiHelper.checkRequestId(xCorrelationId); 
     	dwpMsService.setRequestId(xCorrelationId); 
