@@ -54,7 +54,7 @@ public class DwpMsApiHelper {
 	
 	public String checkRequestId(String xCorrelationId) { // Checks if there is a request id passed by the requester & generates one if not.
 		if (!StringUtils.isEmpty(xCorrelationId)) {
-			return xCorrelationId; // If exists, just return the requesters id.
+            return xCorrelationId; // If exists, just return the requesters id.
 		}
 		
 		return UUID.randomUUID().toString(); // Otherwise generate a UUID and use that.
