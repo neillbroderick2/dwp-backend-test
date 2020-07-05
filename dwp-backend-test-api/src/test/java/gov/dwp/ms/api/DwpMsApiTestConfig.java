@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class DwpMsApiTestConfig {
 	
-	@Bean
+    @Bean
     @Primary
     public DwpMsService mockService() { // Bean to mock our service so we can mock service calls.
         return Mockito.mock(DwpMsService.class);
     }
 	
-	@Bean
+    @Bean
     public TestRestTemplate mockApi() throws Exception { // Bean to setup test rest template so we can mock api calls.
 		return new TestRestTemplate();
     }
