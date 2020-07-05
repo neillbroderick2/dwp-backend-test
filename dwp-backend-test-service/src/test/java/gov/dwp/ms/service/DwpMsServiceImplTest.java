@@ -31,8 +31,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DwpMsServiceImplTest {
 	
-	@Mock
-	private RestTemplate mockApi; // Mock the rest template so we can inject responses.
+    @Mock
+    private RestTemplate mockApi; // Mock the rest template so we can inject responses.
  
     @InjectMocks
     private DwpMsServiceImpl dwpService = new DwpMsServiceImpl();
@@ -223,7 +223,7 @@ public class DwpMsServiceImplTest {
     	Mockito.when(mockApi.getForEntity(builder.build().encode().toUri(), APILocationResponse.class)).thenThrow(HttpClientErrorException.class);
     	
     	@SuppressWarnings("unused")
-		CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
+        CompletableFuture<APILocationResponse> location = dwpService.getLocationResults("London");
     }
     
     @Test(expected = ResponseStatusException.class)
